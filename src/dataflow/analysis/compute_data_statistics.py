@@ -132,9 +132,7 @@ def main(dataflow_dialogues_dir: str, subsets: List[str], outdir: str):
             )
         )
 
-        dialogue_report_df, refer_turn_ids, revise_turn_ids = build_dialogue_report(
-            dataflow_dialogues
-        )
+        dialogue_report_df, refer_turn_ids, revise_turn_ids = build_dialogue_report(dataflow_dialogues)
         dialogue_report_dfs.append(dialogue_report_df)
 
         save_jsonl_file(
