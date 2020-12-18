@@ -86,6 +86,7 @@ def stringify_turn(
     return " ".join(segments)
 
 
+# 之前轮的 lispress 和 agent_utterance由参数决定是否包含，但是当前轮的这两个信息始终不包含
 def create_source_str(
     curr_turn: Turn,
     context_turns: List[Turn],
@@ -258,13 +259,13 @@ def add_arguments(argument_parser: argparse.ArgumentParser) -> None:
         "--include_program",
         default=False,
         action="store_true",
-        help="if True, include the gold program for the context turn parts",
+        help="if True, include the gold program for the context turn parts",   # 是否包含 当前轮的tokenized_lispress
     )
     argument_parser.add_argument(
         "--include_agent_utterance",
         default=False,
         action="store_true",
-        help="if True, include the gold agent utterance for the context turn parts",
+        help="if True, include the gold agent utterance for the context turn parts", # 是否包含 当前轮的agent_utterance
     )
     argument_parser.add_argument(
         "--include_described_entities",
